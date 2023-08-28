@@ -11,7 +11,7 @@ function Location(props)
     const [chosenPokemon, setChosenPokemon] = useState(null);
 
     // State to set the Enemy Pokemon when user clicked on a Location and Data was Found and Fetched.
-    const [pokemon, setPokemon] = useState([]);
+    const [enemyPokemon, setEnemyPokemon] = useState([]);
 
     // State to set True when Data was fetched.
     const [encounterDataFetched, setEncounterDataFetched] = useState(false);
@@ -38,14 +38,6 @@ function Location(props)
             setNoPokemonEncounters(false);
         }
     }, [props.isShown]); // Do this every time the Location is Rendered AND props.isShown is MODIFIED.
-
-    // My Pokemons URLs.
-    // const usersPokemon = 
-    // [
-    //     "https://pokeapi.co/api/v2/pokemon/bulbasaur",
-    //     "https://pokeapi.co/api/v2/pokemon/charizard",
-    //     "https://pokeapi.co/api/v2/pokemon/poliwhirl"
-    // ]
 
     // Event Listener Function attached to Visit Location Button.
     // Used to Fetch a Random Pokemon from the Location Visited (Clicked) and all My Pokemons.
@@ -150,7 +142,7 @@ function Location(props)
                                 };
 
                                 // Set Enemy Pokemon state without to copy in this case the previous objects from the last or initial render.
-                                setPokemon(
+                                setEnemyPokemon(
                                     { 
                                         url: choosenPokemon.url,
                                         name: choosenPokemon.name, 
@@ -160,7 +152,7 @@ function Location(props)
                                         defense: choosenPokemon.defense 
                                     });
 
-                                console.log("ENEMY POKEMON ", pokemon)
+                                console.log("ENEMY POKEMON ", enemyPokemon)
 
                                 // Set it to True because Data was Fetched.
                                 setEncounterDataFetched(true);
@@ -200,7 +192,7 @@ function Location(props)
         key ={item.name} 
         name={item.name} 
         img={item.img}
-        isPokemon={pokemon} 
+        isPokemon={enemyPokemon}
         choosePokemon={() => choosePokemon(item)} // inserting the self-referring function here to avoid using event.
     />)
 
@@ -235,29 +227,34 @@ function Location(props)
                 encounterDataFetched === true && noPokemonEncounters === false ? 
                 (
                     <div>
-                    <div>
-                        {/* AND If chosenPokemon exists, is TRUE */}
-                        {chosenPokemon ? 
-                        (
-                            <div>
-                                <Battle myPokemon = {pokemon} enemyPokemon = {chosenPokemon} setUsersPokemon={setUsersPokemon}/>
-                                {/* Update state with null argument to reset the state of a Chosen Pokemon. */}
-                                <button onClick={() => setChosenPokemon(null)}>Back to My Pokémon</button>
-                            </div>
-                        ) 
-                        // Else
-                        : 
-                        (
-                            <div>
-                                <EnemyPokemon name={pokemon.name} img={pokemon.img} />
-                                {/* List with all my Pokemons. */}
-                                {readyPokemons}
-                                {/* click function TO TURN TRUE this time props.isShown */}
-                                <button onClick={props.click}>Back to Locations</button>
-                            </div>
-                        )}
+                        <div>
+                            {/* AND If chosenPokemon exists, is TRUE */}
+                            {chosenPokemon ? 
+                            (
+                                <div>
+                                    <Battle 
+                                        enemyPokemon = {enemyPokemon} 
+                                        myPokemon = {chosenPokemon} 
+                                        setUsersPokemon={setUsersPokemon} 
+                                        setChosenPokemon={setChosenPokemon}
+                                    />
+                                        {/* Update state with null argument to reset the state of a Chosen Pokemon. */}
+                                        {/* <button onClick={() => setChosenPokemon(null)}>Back to My Pokémons</button> */}
+                                </div>
+                            ) 
+                            // Else
+                            : 
+                            (
+                                <div>
+                                    <EnemyPokemon name={enemyPokemon.name} img={enemyPokemon.img} />
+                                    {/* List with all my Pokemons. */}
+                                    {readyPokemons}
+                                    {/* click function TO TURN TRUE this time props.isShown */}
+                                    <button onClick={props.click}>Back to Locations</button>
+                                </div>
+                            )}
+                        </div>
                     </div>
-                </div>
                 ) 
                 // Else
                 : 
