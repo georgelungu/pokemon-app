@@ -39,6 +39,8 @@ function Location(props)
             "https://pokeapi.co/api/v2/pokemon/poliwhirl"
         ]);
 
+    console.log("MY POKEMONS URL'S: ", usersPokemon);
+
     // Event Listener Function attached to Visit Location Button.
     // Used to Fetch a Random Pokemon from the Location Visited (Clicked) and all My Pokemons.
     function fetchData(event)

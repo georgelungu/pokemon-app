@@ -48,7 +48,7 @@ function App()
 
   console.log("App Component Rendered")
 
-  // mapping through state to create components to render.
+  // mapping through 'data' state to create components to render.
   const list = data.map((item, index) => 
     <Location 
       name={item.name}
@@ -63,7 +63,7 @@ function App()
 
   return (
     <div className="App">
-      {list}
+      {list} 
     </div>
   );
 }

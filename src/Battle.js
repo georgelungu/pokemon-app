@@ -5,7 +5,7 @@ import EnemyPokemon from "./EnemyPokemon";
 
 function Battle({myPokemon, enemyPokemon, setChosenPokemon, setUsersPokemon})
 {
-    // Getting My Pokemon Stats from PROPS in order to update them.
+    // Getting My Pokemon Stats from destructured PROPS in order to update them.
     const [myStats, setMyStats] = useState
     ({
         url: myPokemon.url,
@@ -33,6 +33,7 @@ function Battle({myPokemon, enemyPokemon, setChosenPokemon, setUsersPokemon})
 
     // console.log("Enemy Pokemon Staus: ", enemyStats)
 
+    // Function tu update enemy stats in MyPokemon, when he attacks.
     function updateEnemyStats(newStats) {
         setEnemyStats({
           ...enemyStats, 
@@ -40,6 +41,7 @@ function Battle({myPokemon, enemyPokemon, setChosenPokemon, setUsersPokemon})
         });
       }
 
+      // Function tu update my stats in EnemyPokemon, when he attacks.
       function updateMyStats(newStats) {
         setMyStats({
           ...myStats,
@@ -54,13 +56,12 @@ function Battle({myPokemon, enemyPokemon, setChosenPokemon, setUsersPokemon})
     // Add a function as an Event Listener to create the logic of the fight.
     function startFight()
     {
-        setFight(prevState => !prevState)
-        setTurn(prevState => !prevState)
+        setFight(prevState => !prevState) // true
+        setTurn(prevState => !prevState) // true
     }
 
     return (
       <div>
-        {/* {console.log("enemyUrl in Battle component:", enemyPokemon.url)} */}
         <MyPokemon
           name={myPokemon.name}
           img={myPokemon.img}
@@ -68,11 +69,8 @@ function Battle({myPokemon, enemyPokemon, setChosenPokemon, setUsersPokemon})
           turn={turn}
           setTurn={setTurn}
           myStats={myStats}
-          setMyStats={setMyStats}
           enemyStats={enemyStats}
-          setEnemyStats={setEnemyStats}
-          updateEnemyStats={updateEnemyStats} // Pass the callback function here
-          setChosenPokemon={setChosenPokemon}
+          updateEnemyStats={updateEnemyStats}
           startedFight={fight}
           setFight={setFight}
           setUsersPokemon={setUsersPokemon}
@@ -83,21 +81,21 @@ function Battle({myPokemon, enemyPokemon, setChosenPokemon, setUsersPokemon})
           turn={turn}
           setTurn={setTurn}
           myStats={myStats}
-          setMyStats={setMyStats}
           enemyStats={enemyStats}
-          setEnemyStats={setEnemyStats}
           updateMyStats={updateMyStats}
           startedFight={fight}
           setFight={setFight}
           setChosenPokemon={setChosenPokemon}
         />
 
+        {/* if fight is false then show Fight Button. */}
         {!fight 
         ? 
         (
           <button onClick={startFight}>Fight</button>
         ) 
         : 
+        // else if fight is false and enemyStats.hp < 0 show Back to My Pokemons Button.
         !fight && enemyStats.hp < 0 ? 
         (
           <button onClick={() => setChosenPokemon(null)}>
