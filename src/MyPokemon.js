@@ -33,7 +33,7 @@ function MyPokemon(props)
         }
     }
 
-    console.log(props.enemyUrl) // NOT WORKING AND I DONT KNOW WHY
+    console.log("ENEMY URL: ", props.enemyUrl) // NOT WORKING AND I DONT KNOW WHY
 
     return (
         <div className="my-pokemon-div">
