@@ -55,7 +55,7 @@ function App()
       url={item.url}
       key={index}
       index={index}
-      click={toggleShown}
+      toggleShown={toggleShown}
       isShown={isShown}
       myPokemons={myPokemons}
       setMyPokemons={setMyPokemons}

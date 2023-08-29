@@ -6,7 +6,7 @@ function EnemyPokemon(props)
 
     const z = Math.floor(Math.random() * (217 - 255 + 1)) + 217;
 
-    console.log(props.enemyUrl)
+    // console.log(props.enemyUrl)
 
     function enemyTurn()
     {

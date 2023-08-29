@@ -19,14 +19,6 @@ function Location(props)
     // State to set True when Data was fetched and Pokemon from Area fetched was found.
     const [noPokemonEncounters, setNoPokemonEncounters] = useState(false);
 
-    // State to set my Pokemons and to be able to update it.
-    const [usersPokemon, setUsersPokemon] = useState(
-    [
-        "https://pokeapi.co/api/v2/pokemon/bulbasaur",
-        "https://pokeapi.co/api/v2/pokemon/charizard",
-        "https://pokeapi.co/api/v2/pokemon/poliwhirl"
-    ]);
-
     useEffect(() => 
     {
         // In App.js initially set to True. Meaning that the Location is displayed and waiting to be visited.
@@ -38,6 +30,14 @@ function Location(props)
             setNoPokemonEncounters(false);
         }
     }, [props.isShown]); // Do this every time the Location is Rendered AND props.isShown is MODIFIED.
+
+    // State to set my Pokemons and to be able to update it.
+    const [usersPokemon, setUsersPokemon] = useState(
+        [
+            "https://pokeapi.co/api/v2/pokemon/bulbasaur",
+            "https://pokeapi.co/api/v2/pokemon/charizard",
+            "https://pokeapi.co/api/v2/pokemon/poliwhirl"
+        ]);
 
     // Event Listener Function attached to Visit Location Button.
     // Used to Fetch a Random Pokemon from the Location Visited (Clicked) and all My Pokemons.
@@ -204,7 +204,7 @@ function Location(props)
                 <h2>{props.name}</h2>
                 <a href={props.url} onClick={fetchData}> 
                     {/* click function TO TURN FALSE props.isShown */}
-                    <button onClick={props.click}>Visit Location</button>
+                    <button onClick={props.toggleShown}>Visit Location</button>
                 </a>
             </div>
         ) 
@@ -217,7 +217,7 @@ function Location(props)
                 <div>
                     <p>This location doesn't seem to have any Pokémon encounters.</p>
                      {/* click function TO TURN TRUE this time props.isShown */}
-                    <button onClick={props.click}>Back to Locations</button>
+                    <button onClick={props.toggleShown}>Back to Locations</button>
                 </div>
             ) 
             // Else
@@ -250,7 +250,7 @@ function Location(props)
                                     {/* List with all my Pokemons. */}
                                     {readyPokemons}
                                     {/* click function TO TURN TRUE this time props.isShown */}
-                                    <button onClick={props.click}>Back to Locations</button>
+                                    <button onClick={props.toggleShown}>Back to Locations</button>
                                 </div>
                             )}
                         </div>

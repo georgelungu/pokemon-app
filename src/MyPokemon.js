@@ -40,6 +40,7 @@ function MyPokemon(props)
             <h2 className="my-pokemon-name">{props.name}</h2>
             <img className="my-pokemon-image" src={props.img} alt=""/>
             <button onClick={props.choosePokemon}>{props.isPokemon && "Choose"}</button>
+            
             {props.turn && props.startedFight ? 
             (
                 <button onClick={nextTurn}>Your turn</button>

@@ -58,44 +58,62 @@ function Battle({myPokemon, enemyPokemon, setChosenPokemon, setUsersPokemon})
         setTurn(prevState => !prevState)
     }
 
-    return(
-        <div>
-            {/* {console.log("enemyUrl in Battle component:", enemyPokemon.url)} */}
-            <MyPokemon 
-                name={myPokemon.name} 
-                img={myPokemon.img} 
-                enemyUrl={enemyStats.url}
-                turn={turn} 
-                setTurn={setTurn}
-                myStats={myStats} 
-                setMyStats={setMyStats}
-                enemyStats={enemyStats}
-                setEnemyStats={setEnemyStats}
-                updateEnemyStats={updateEnemyStats} // Pass the callback function here
-                setChosenPokemon={setChosenPokemon}
-                startedFight={fight}
-                setFight={setFight}
-                setUsersPokemon={setUsersPokemon}
-            />
-            <EnemyPokemon 
-                name={enemyPokemon.name} 
-                img={enemyPokemon.img}
-                turn={turn}
-                setTurn={setTurn}
-                myStats={myStats} 
-                setMyStats={setMyStats}
-                enemyStats={enemyStats}
-                setEnemyStats={setEnemyStats}
-                updateMyStats={updateMyStats}
-                startedFight={fight}
-                setFight={setFight}
-                setChosenPokemon={setChosenPokemon}
-            />
-            
-            {!fight ? <button onClick={startFight}>Fight</button> : !fight && enemyStats.hp < 0 ? <button onClick={() => setChosenPokemon(null)}>Back to My Pokémons</button> : null}
-            {enemyStats.hp < 0 && <button onClick={() => setChosenPokemon(null)}>Back to My Pokémons</button>}
-        </div>
-    )
+    return (
+      <div>
+        {/* {console.log("enemyUrl in Battle component:", enemyPokemon.url)} */}
+        <MyPokemon
+          name={myPokemon.name}
+          img={myPokemon.img}
+          enemyUrl={enemyStats.url}
+          turn={turn}
+          setTurn={setTurn}
+          myStats={myStats}
+          setMyStats={setMyStats}
+          enemyStats={enemyStats}
+          setEnemyStats={setEnemyStats}
+          updateEnemyStats={updateEnemyStats} // Pass the callback function here
+          setChosenPokemon={setChosenPokemon}
+          startedFight={fight}
+          setFight={setFight}
+          setUsersPokemon={setUsersPokemon}
+        />
+        <EnemyPokemon
+          name={enemyPokemon.name}
+          img={enemyPokemon.img}
+          turn={turn}
+          setTurn={setTurn}
+          myStats={myStats}
+          setMyStats={setMyStats}
+          enemyStats={enemyStats}
+          setEnemyStats={setEnemyStats}
+          updateMyStats={updateMyStats}
+          startedFight={fight}
+          setFight={setFight}
+          setChosenPokemon={setChosenPokemon}
+        />
+
+        {!fight 
+        ? 
+        (
+          <button onClick={startFight}>Fight</button>
+        ) 
+        : 
+        !fight && enemyStats.hp < 0 ? 
+        (
+          <button onClick={() => setChosenPokemon(null)}>
+            Back to My Pokémons
+          </button>
+        ) 
+        : 
+        null}
+        {enemyStats.hp < 0 && 
+        (
+          <button onClick={() => setChosenPokemon(null)}>
+            Back to My Pokémons
+          </button>
+        )}
+      </div>
+    );
 }
 
 export default Battle;
