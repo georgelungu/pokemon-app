@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Location from './Location';
+import Scroll from './Scroll';
 import './App.css';
 
 function App() 
@@ -63,7 +64,9 @@ function App()
 
   return (
     <div className="App">
-      {list} 
+      <Scroll>
+        {list} 
+      </Scroll>
     </div>
   );
 }

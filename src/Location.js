@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import EnemyPokemon from "./EnemyPokemon";
 import MyPokemon from "./MyPokemon"
 import Battle from "./Battle";
+import './Location.css';
 
 function Location(props)
 {
@@ -202,11 +203,11 @@ function Location(props)
         // If isShown is True, every Location is displayed.
         props.isShown === true ? 
         (
-            <div key={props.index}>
-                <h2>{props.name}</h2>
+            <div id="location-card" key={props.index}>
+                <h2 id="location-name">{props.name}</h2>
                 <a href={props.url} onClick={fetchData}> 
                     {/* click function TO TURN FALSE props.isShown */}
-                    <button onClick={props.toggleShown}>Visit Location</button>
+                    <button id="travel" onClick={props.toggleShown}>Visit Location</button>
                 </a>
             </div>
         ) 
@@ -216,10 +217,10 @@ function Location(props)
             // If encounterDataFetched AND noPokemonEncounters ARE TRUE...
             encounterDataFetched === true && noPokemonEncounters === true ? 
             (
-                <div>
+                <div id="empty-location">
                     <p>This location doesn't seem to have any Pokémon encounters.</p>
                      {/* click function TO TURN TRUE this time props.isShown */}
-                    <button onClick={props.toggleShown}>Back to Locations</button>
+                    <button id="go-back" onClick={props.toggleShown}>Back to Locations</button>
                 </div>
             ) 
             // Else

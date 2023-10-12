@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Pokemon Font';
+    src: url('./fonts/Pokemon_Solid.ttf') format('truetype'); /* Specify the path to your font file */
+    font-weight: normal; /* Specify font-weight if needed */
+    font-style: normal; /* Specify font-style if needed */
+  }
+
+#location-card{
+    background-color: rgba(250, 242, 211, 0.7);
+    width: 450px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 5px solid #E9B824;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+#location-name{
+    color: #3085C3;
+    font-family: 'Pokemon Font';
+    font-size: 40px;
+    letter-spacing: 0.2cm;
+    position: relative;
+    top: -25px;
+    -webkit-text-stroke: 1px #E9B824;
+}

@@ -9,6 +9,6 @@
 
 .App {
   background-image: url("./images/homepage-background.jpg");
-  background-size: contain;
+  background-size: 100vw 100vh;
   background-repeat: no-repeat;
 }
