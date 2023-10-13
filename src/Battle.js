@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import MyPokemon from "./MyPokemon";
 import EnemyPokemon from "./EnemyPokemon";
 
+import './Battle.css'
+
 
 function Battle({myPokemon, enemyPokemon, setChosenPokemon, setUsersPokemon})
 {
@@ -92,7 +94,7 @@ function Battle({myPokemon, enemyPokemon, setChosenPokemon, setUsersPokemon})
         {!fight 
         ? 
         (
-          <button onClick={startFight}>Fight</button>
+          <button className="fight" onClick={startFight}><span>Fight</span></button>
         ) 
         : 
         // else if fight is false and enemyStats.hp < 0 show Back to My Pokemons Button.

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import './MyPokemon.css'
 
 function MyPokemon(props)
 {
@@ -37,13 +38,14 @@ function MyPokemon(props)
 
     return (
         <div className="my-pokemon-div">
-            <h2 className="my-pokemon-name">{props.name}</h2>
             <img className="my-pokemon-image" src={props.img} alt=""/>
-            <button onClick={props.choosePokemon}>{props.isPokemon && "Choose"}</button>
+            <h2 className="my-pokemon-name">{props.name}</h2>
+            {/* <button onClick={props.choosePokemon}>{props.isPokemon && "Choose"}</button> */}
+            {props.isPokemon && <button className="choose" onClick={props.choosePokemon}><span>Choose</span></button>}
             
             {props.turn && props.startedFight ? 
             (
-                <button onClick={nextTurn}>Your turn</button>
+                <button className="turn" onClick={nextTurn}><span>Your turn</span></button>
             )  
             : 
             null}

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import './EnemyPokemon.css'
 
 function EnemyPokemon(props)
 {
@@ -33,11 +34,11 @@ function EnemyPokemon(props)
 
     return (
         <div className="enemy-pokemon-div">
-            <h2 className="enemy-pokemon-name">{props.name}</h2>
             <img className="enemy-pokemon-image" src={props.img} alt=""/>
+            <h2 className="enemy-pokemon-name">{props.name}</h2>
             {!props.turn && props.startedFight && enemyStats.hp > 0? 
             (
-                <button onClick={enemyTurn}>Enemy turn</button>
+                <button className="turn" onClick={enemyTurn}><span>Enemy turn</span></button>
             ) 
             : 
             props.turn && !props.startedFight ? 

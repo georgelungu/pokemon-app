@@ -205,9 +205,9 @@ function Location(props)
         (
             <div id="location-card" key={props.index}>
                 <h2 id="location-name">{props.name}</h2>
-                <a href={props.url} onClick={fetchData}> 
+                <a href={props.url} onClick={fetchData} id="travel"> 
                     {/* click function TO TURN FALSE props.isShown */}
-                    <button id="travel" onClick={props.toggleShown}>Visit Location</button>
+                    <button id="travel-button" onClick={props.toggleShown}>Visit Location</button>
                 </a>
             </div>
         ) 
@@ -220,7 +220,7 @@ function Location(props)
                 <div id="empty-location">
                     <p>This location doesn't seem to have any Pokémon encounters.</p>
                      {/* click function TO TURN TRUE this time props.isShown */}
-                    <button id="go-back" onClick={props.toggleShown}>Back to Locations</button>
+                    <button id="go-back" onClick={props.toggleShown}><span>Back to Locations</span></button>
                 </div>
             ) 
             // Else
@@ -249,11 +249,15 @@ function Location(props)
                             : 
                             (
                                 <div>
-                                    <EnemyPokemon name={enemyPokemon.name} img={enemyPokemon.img} />
-                                    {/* List with all my Pokemons. */}
-                                    {readyPokemons}
-                                    {/* click function TO TURN TRUE this time props.isShown */}
-                                    <button onClick={props.toggleShown}>Back to Locations</button>
+                                    <div className="enemy">
+                                        <EnemyPokemon name={enemyPokemon.name} img={enemyPokemon.img} />
+                                    </div>
+                                    <div className="allies">
+                                        {/* List with all my Pokemons. */}
+                                        {readyPokemons}
+                                        {/* click function TO TURN TRUE this time props.isShown */}
+                                    </div>
+                                    <button className="back-to-location" onClick={props.toggleShown}> <span>Back to Locations</span></button>
                                 </div>
                             )}
                         </div>

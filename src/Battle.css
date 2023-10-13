@@ -1,0 +1,22 @@
+.fight{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    background-image: url('./images/wooden_ui_components/visit_location_button.png');
+    width: 200px;
+    height: 50px;
+    background-size: 200px 50px;
+    position: relative;
+    top: -20px;
+    font-family: 'Pokemon Font';
+    color: rgb(252, 252, 252);
+    -webkit-text-stroke: 1px black;
+    font-size: 15px;
+    letter-spacing: 0.01cm;
+    margin: 10px;
+}
+
+.fight span {
+    position: relative;
+    top: -5px; /* Lift the text by 2 pixels */
+}
