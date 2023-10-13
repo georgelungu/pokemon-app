@@ -100,8 +100,8 @@ function Battle({myPokemon, enemyPokemon, setChosenPokemon, setUsersPokemon})
         // else if fight is false and enemyStats.hp < 0 show Back to My Pokemons Button.
         !fight && enemyStats.hp < 0 ? 
         (
-          <button onClick={() => setChosenPokemon(null)}>
-            Back to My Pokémons
+          <button className="back" onClick={() => setChosenPokemon(null)}>
+            <span>Back to My Pokémons</span>
           </button>
         ) 
         : 
