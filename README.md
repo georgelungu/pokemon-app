@@ -1,70 +1,75 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# POKEMON APP
 
-## Available Scripts
+Small part of a broader fighting game concept, designed as a simple web-app to deepen my understanding in REACT Hooks. 
 
-In the project directory, you can run:
+In building this app I have used real world APIs to fetch from a [pokemon database](https://pokemondb.net/) with different locations and engage in a battle with a random pokemon fetched from the selected location.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Screenshots
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![App Screenshot](https://images4.imagebam.com/d2/3b/51/MEPME7O_o.png)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Demo
 
-### `npm run build`
+[Press here to play!](https://pokemon-app-kappa-lac.vercel.app/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- API Calls for fetching locations
+- API Calls for fetching pokemons
+- Health, Attack and Defense for each pokemon
+- Ready to use
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Prerequisites:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    Before you begin, ensure that you have the following software installed on your system:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Git: You can download and install [Git](https://git-scm.com/), Node.js and npm: You can download and install [Node.js](https://nodejs.org/) which includes npm.
 
-## Learn More
+2. Clone the Repository
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    Open your terminal or command prompt and navigate to the directory where you want to clone the repository. Then, use the following command to clone your repository:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  git clone git@github.com:georgelungu/pokemon-app.git
+```
 
-### Code Splitting
+3. Navigate to the Project Directory:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    Change your current directory to the newly cloned project's directory: 
+    
+```bash
+  cd <repository_directory>
+```
 
-### Analyzing the Bundle Size
+Replace <repository_directory> with the name of the directory created when you cloned the repository.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. Install Dependencies
 
-### Making a Progressive Web App
+    Use npm to install the project's dependencies. Run the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+  npm install
+```
 
-### Advanced Configuration
+This command will read the package.json file in your project and install all the required packages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+5. Start the Project:
 
-### Deployment
+    Once the dependencies are installed, you can start your project by running the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+  npm run start
+```
 
-### `npm run build` fails to minify
+This command will execute the script specified in your package.json file to start your application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+6. Access the Application:
+
+    After running npm run start, your application should be up and running. Open a web browser and access it using the appropriate address and port (e.g., http://localhost:3000).
